@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class DetallesAuto extends AppCompatActivity {
@@ -27,5 +28,21 @@ public class DetallesAuto extends AppCompatActivity {
             detalles.setText(b.getString("DET"));
 
         }
+
     }
+
+    public void Navegarinfo(View view){
+        Intent i = new Intent(this, Hiluxweb.class);
+        enviardatos();
+        startActivity(i);
+    }
+    public void enviardatos(){
+        TextView modelo = (TextView) findViewById(R.id.tbModeloDescripcion);
+        String modelo1;
+        modelo1 = modelo.getText().toString();
+        Intent intent = new Intent(this, Hiluxweb.class);
+        intent.putExtra("modelo",modelo1);
+        startActivity(intent);
+    }
+
 }
