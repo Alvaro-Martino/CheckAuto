@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Spinner sp1;
     ListView lista;
+
 
     String[][] datos = {
             {"Toyota", "Hilux", "25.120", "Emisiones de CO2: 183 g/km (mixto), Consumo (Urbano) 7.4 l/100 km, Consumo (Extra urbano)6.7 l/100 km."},
@@ -46,5 +50,52 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(visorDetalles);
             }
         });
+
+        sp1 = (Spinner)findViewById(R.id.sp1);
+
+        String[] opciones = {"Toyota","Ford","Volkswagen","Renault","Peugeot","Chevrolet"};
+        ArrayAdapter <String> Opc = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
+        sp1.setAdapter(Opc);
+
     }
+    //metodo del boton de busqueda
+    public void Buscar(View view){
+        String seleccion = sp1.getSelectedItem().toString();
+
+        if (seleccion.equals("Toyota")){
+            Intent i = new Intent(this, ToyotaActivity.class);
+            startActivity(i);
+
+        }
+
+        if (seleccion.equals("Ford")){
+            Intent i = new Intent(this, FordActivity.class);
+            startActivity(i);
+
+        }
+
+        if (seleccion.equals("Chevrolet")){
+            Intent i = new Intent(this, ChevroletActivity.class);
+            startActivity(i);
+
+        }
+
+        if (seleccion.equals("Volkswagen")){
+            Intent i = new Intent(this, VolkswagenActivity.class);
+            startActivity(i);
+
+        }
+        if (seleccion.equals("Peugeot")){
+            Intent i = new Intent(this, PeugeotActivity.class);
+            startActivity(i);
+
+        }
+        if (seleccion.equals("Renault")){
+            Intent i = new Intent(this, RenaultActivity.class);
+            startActivity(i);
+
+        }
+
+    }
+
 }

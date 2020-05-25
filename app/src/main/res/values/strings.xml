@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CheckAuto</string>
+    <string name="Title">CheckAuto</string>
+    <string name="Filt">Filtrar por marca:</string>
+    <string name="Subtitle">Lista de vehiculos:</string>
+    <string name="Toyota">Lista de vehiculos:</string>
+    <string name="Btn_search">Busqueda</string>
 </resources>
